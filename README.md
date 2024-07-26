@@ -24,6 +24,7 @@ Ensure you have the following installed on your system:
 1. Clone the repository:
    ```bash
    git clone https://github.com/PavloSmokorovskiy/my.interview_task_BitcoinCharts_WebFlux_K8s_GCP.git
+   or
    git clone git@github.com:PavloSmokorovskiy/my.interview_task_BitcoinCharts_WebFlux_K8s_GCP.git
    cd my.interview_task_BitcoinCharts_WebFlux_K8s_GCP
 
@@ -54,7 +55,41 @@ Ensure you have the following installed on your system:
          }
       ]
    }
+   ```
 
+   Or with CURL:
+   ```http
+   curl -X POST http://localhost:8080/evaluation/sheets \
+   -H "Content-Type: application/json" \
+   -d '{
+   "testeeId": "342",
+   "subjects": [
+         {
+            "subject": "maths",
+            "totalQuestions": 100,
+            "correct": 72,
+            "incorrect": 15
+         }
+      ]
+   }'
+   ```
 
+   ### Retrieving Evaluated Scores
+   To fetch data with filters, make a request in POSTMAN:
+   ```http
+   GET /evaluation/scores?testeeIds=342&subjects=maths,science&scoreRange=70-75
+   ```
 
-5. 
+   Or with CURL:
+   ```http
+   curl -G http://localhost:8080/evaluation/scores \
+   --data-urlencode "testeeIds=342" \
+   --data-urlencode "subjects=maths,science" \
+   --data-urlencode "scoreRange=70-75"
+   ```
+
+5. Testing
+   To run the tests, execute the following command:
+   ```http
+   gradle test
+   ```
