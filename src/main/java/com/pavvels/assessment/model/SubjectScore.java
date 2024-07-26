@@ -1,10 +1,12 @@
 package com.pavvels.assessment.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class SubjectScore {
@@ -12,11 +14,6 @@ public class SubjectScore {
     private int totalQuestions;
     private int correct;
     private int incorrect;
+    private double score;
 
-    public SubjectScore(String subject, int totalQuestions, int correct, int incorrect) {
-        this.subject = subject;
-        this.totalQuestions = totalQuestions;
-        this.correct = correct;
-        this.incorrect = incorrect;
-    }
 }

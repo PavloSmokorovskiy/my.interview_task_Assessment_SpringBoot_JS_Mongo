@@ -1,3 +1,4 @@
+//file:noinspection GroovyUnusedAssignment
 plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.18'
@@ -7,9 +8,12 @@ plugins {
 group = 'com.pavvels'
 version = '0.1'
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(JavaVersion.VERSION_11.toString())
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
     }
 }
 
@@ -23,6 +27,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.json:json:20240303'
     compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
