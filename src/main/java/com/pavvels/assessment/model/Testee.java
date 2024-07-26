@@ -1,6 +1,5 @@
 package com.pavvels.assessment.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,15 +9,19 @@ import java.util.List;
 
 @Document
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Testee {
 
     @Id
+    private String id;
     private String testeeId;
     private List<SubjectScore> subjects;
     private double totalScore;
     private double averageScore;
 
+    public Testee(String testeeId, List<SubjectScore> subjects) {
+        this.testeeId = testeeId;
+        this.subjects = subjects;
+    }
 }
