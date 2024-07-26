@@ -27,3 +27,34 @@ Ensure you have the following installed on your system:
    git clone git@github.com:PavloSmokorovskiy/my.interview_task_BitcoinCharts_WebFlux_K8s_GCP.git
    cd my.interview_task_BitcoinCharts_WebFlux_K8s_GCP
 
+2. Start MongoDB if installed locally:
+   ```bash
+   mongod
+
+3. Build and run the application using Gradle:
+   ```bash
+   gradle bootRun
+
+4. Usage
+
+   ### Adding Test Results
+   To submit test result data, use the following request in POSTMAN:
+   ```http
+   POST /evaluation/sheets
+   Content-Type: application/json
+
+   {
+      "testeeId": "342",
+      "subjects": [
+         {
+            "subject": "maths",
+            "totalQuestions": 100,
+            "correct": 72,
+            "incorrect": 15
+         }
+      ]
+   }
+
+
+
+5. 
